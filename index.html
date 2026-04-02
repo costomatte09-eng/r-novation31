@@ -41,13 +41,55 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
 
 /* ── TOPBAR ── */
 /* Barre fine au-dessus de la nav : liens utiles + icônes réseaux sociaux */
-.topbar{background:var(--wht);border-bottom:1px solid var(--brd);padding:7px 5vw;display:flex;justify-content:space-between;align-items:center}
-.topbar-links{display:flex;gap:20px}
-.topbar-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.topbar{
+  background:var(--blk);
+  padding:8px 5vw;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+}
+.topbar-links{display:flex;gap:0}
+.topbar-links a{
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:rgba(255,255,255,.45);
+  text-decoration:none;
+  padding:0 16px;
+  border-right:1px solid rgba(255,255,255,.1);
+  transition:color .2s;
+  line-height:1;
+}
+.topbar-links a:first-child{padding-left:0}
+.topbar-links a:last-child{border-right:none}
 .topbar-links a:hover{color:var(--r)}
-.topbar-social{display:flex;gap:6px}
+/* Séparateur vertical + icônes réseaux */
+.topbar-social{display:flex;gap:6px;align-items:center}
+.topbar-social::before{
+  content:'';
+  display:block;
+  width:1px;
+  height:14px;
+  background:rgba(255,255,255,.15);
+  margin-right:10px;
+}
 /* Boutons ronds réseaux sociaux */
-.sd{width:26px;height:26px;border-radius:50%;border:1px solid var(--brd);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-size:10px;font-weight:700;color:var(--muted);text-decoration:none;transition:all .2s}
+.sd{
+  width:24px;height:24px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.2);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-size:9px;
+  font-weight:700;
+  color:rgba(255,255,255,.45);
+  text-decoration:none;
+  transition:all .2s;
+}
 .sd:hover{background:var(--r);border-color:var(--r);color:#fff}
 
 /* ── NAV ── */
