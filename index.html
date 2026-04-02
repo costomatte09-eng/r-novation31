@@ -751,32 +751,9 @@ document.querySelectorAll('.pct-item').forEach(thumb=>{
   });
 });
 
-// startAutoSlide : défilement automatique toutes les 3500ms pour un projet donné
-const projTimers = {};
-function startAutoSlide(projId){
-  const pci = document.querySelector('#proj'+projId+' .pci');
-  const total = pci.querySelectorAll('img').length;
-  let current = 0;
-  projTimers[projId] = setInterval(()=>{
-    current = (current+1) % total;
-    setSlide(projId, current);
-  }, 3500);
+
 }
 
-// resetAutoSlide : repart le timer depuis zéro après un clic manuel
-function resetAutoSlide(projId){
-  clearInterval(projTimers[projId]);
-  startAutoSlide(projId);
-}
-
-// Démarrage automatique pour les 2 projets au chargement
-startAutoSlide(0);
-startAutoSlide(1);
-
-// Clic sur vignette → reset du timer pour éviter un saut immédiat
-document.querySelectorAll('.pct-item').forEach(thumb=>{
-  thumb.addEventListener('click',()=>{
-    resetAutoSlide(thumb.getAttribute('data-proj'));
   });
 });
 
