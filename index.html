@@ -55,18 +55,18 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
 .nav{
   display:flex;justify-content:space-between;align-items:center;
   padding:12px 5vw;
-  background:rgba(255,255,255,0.75);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
+  background:rgba(255,255,255,0.55);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
   border-bottom:1px solid transparent;
   position:sticky;top:0;z-index:100;width:100%;
-  transition:background .3s ease, border-color .3s ease, box-shadow .3s ease;
+  transition:background .4s ease, border-color .4s ease, box-shadow .4s ease;
 }
-/* État au scroll — plus opaque, ombre discrète, bordure visible */
+/* État au scroll — légèrement plus opaque mais reste aéré */
 .nav.scrolled{
-  background:rgba(255,255,255,0.96);
+  background:rgba(255,255,255,0.82);
   border-bottom-color:var(--lt);
-  box-shadow:0 2px 16px rgba(0,0,0,0.06);
+  box-shadow:0 2px 20px rgba(0,0,0,0.04);
 }
 .nav-logo{height:52px;width:auto;display:block}
 /* Liens du menu horizontal */
@@ -676,10 +676,9 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
 <script>
 
 // ── Nav scroll effect ──
-// Ajoute .scrolled sur la nav dès que l'utilisateur scroll de plus de 40px
 const nav = document.querySelector('.nav');
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
+  nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
   
 // ── 1. Compteurs animés ──
