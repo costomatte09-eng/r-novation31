@@ -55,16 +55,16 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
 .nav{
   display:flex;justify-content:space-between;align-items:center;
   padding:12px 5vw;
-  background:rgba(255,255,255,0.55);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
+  background:rgba(255,255,255,0.45);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
   border-bottom:1px solid transparent;
   position:sticky;top:0;z-index:100;width:100%;
   transition:background .4s ease, border-color .4s ease, box-shadow .4s ease;
 }
 /* État au scroll — légèrement plus opaque mais reste aéré */
 .nav.scrolled{
-  background:rgba(255,255,255,0.82);
+  background:rgba(255,255,255,0.76);
   border-bottom-color:var(--lt);
   box-shadow:0 2px 20px rgba(0,0,0,0.04);
 }
@@ -72,7 +72,7 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
 /* Liens du menu horizontal */
 .nav-menu{display:flex;list-style:none}
 .nav-menu li a{
-  display:block;padding:4px 14px;font-size:13px;font-weight:600;
+  display:block;padding:4px 16px;font-size:13px;font-weight:600;
   letter-spacing:.05em;text-transform:uppercase;color:var(--blk);
   text-decoration:none;border-right:1px solid var(--brd);
   transition:color .2s;
@@ -678,7 +678,7 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
 // ── Nav scroll effect ──
 const nav = document.querySelector('.nav');
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
+  nav.classList.toggle('scrolled', window.scrollY > 70);
 }, { passive: true });
   
 // ── 1. Compteurs animés ──
