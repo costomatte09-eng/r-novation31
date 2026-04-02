@@ -91,7 +91,6 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
   transition:all .2s;
 }
 .sd:hover{background:var(--r);border-color:var(--r);color:#fff}
-
 /* ── NAV ── */
 /* Sticky — transparente au top, opaque + ombre au scroll via classe .scrolled (JS) */
 .nav{
@@ -718,6 +717,28 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
 ============================================================ -->
 <script>
 
+// ── Topbar : défilement rouge sur les liens ──
+// Allume chaque lien en rouge l'un après l'autre en boucle
+(function(){
+  const links = document.querySelectorAll('.topbar-links a');
+  if(!links.length) return;
+  let current = 0;
+
+  function next(){
+    // Éteint l'actuel
+    links[current].classList.remove('tl-active');
+    // Passe au suivant
+    current = (current + 1) % links.length;
+    // Allume le suivant
+    links[current].classList.add('tl-active');
+  }
+
+  // Allume le premier dès le départ
+  links[current].classList.add('tl-active');
+  // Change toutes les 1.8 secondes
+  setInterval(next, 1800);
+})();
+  
 // ── Nav scroll effect ──
 const nav = document.querySelector('.nav');
 window.addEventListener('scroll', () => {
