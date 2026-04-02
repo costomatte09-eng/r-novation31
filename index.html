@@ -51,18 +51,37 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
 .sd:hover{background:var(--r);border-color:var(--r);color:#fff}
 
 /* ── NAV ── */
-/* Barre de navigation principale — sticky (reste visible au scroll) */
-.nav{display:flex;justify-content:space-between;align-items:center;padding:12px 5vw;background:var(--wht);border-bottom:2px solid var(--lt);position:sticky;top:0;z-index:100;width:100%}
+/* Sticky — transparente au top, opaque + ombre au scroll via classe .scrolled (JS) */
+.nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 5vw;
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+  position:sticky;top:0;z-index:100;width:100%;
+  transition:background .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+/* État au scroll — plus opaque, ombre discrète, bordure visible */
+.nav.scrolled{
+  background:rgba(255,255,255,0.96);
+  border-bottom-color:var(--lt);
+  box-shadow:0 2px 16px rgba(0,0,0,0.06);
+}
 .nav-logo{height:52px;width:auto;display:block}
 /* Liens du menu horizontal */
 .nav-menu{display:flex;list-style:none}
-.nav-menu li a{display:block;padding:4px 14px;font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--blk);text-decoration:none;border-right:1px solid var(--brd);transition:color .2s}
+.nav-menu li a{
+  display:block;padding:4px 14px;font-size:13px;font-weight:600;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--blk);
+  text-decoration:none;border-right:1px solid var(--brd);
+  transition:color .2s;
+}
 .nav-menu li:last-child a{border-right:none}
 .nav-menu li a:hover{color:var(--r)}
 /* Icône hamburger — visible uniquement sur mobile */
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .burger span{display:block;width:24px;height:2px;background:var(--blk);transition:all .3s}
-
 /* ── BOUTONS ── */
 /* Animation shimmer (reflet lumineux qui traverse le bouton) */
 @keyframes sh{0%{left:-80%}45%{left:130%}100%{left:130%}}
@@ -656,6 +675,13 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
 ============================================================ -->
 <script>
 
+// ── Nav scroll effect ──
+// Ajoute .scrolled sur la nav dès que l'utilisateur scroll de plus de 40px
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+  
 // ── 1. Compteurs animés ──
 // Anime les chiffres de 0 vers la valeur cible sur la durée donnée (ms)
 function countUp(id,target,suffix,dur){
