@@ -217,28 +217,25 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
 .sc2:hover .sa{color:var(--r);transform:translateX(4px)}
 
 /* ── PROJETS ── */
-/* Section galerie — grille 2 colonnes asymétrique */
 .projs{padding:72px 5vw}
 .pg{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;margin-top:40px}
 .pc{overflow:hidden}
-/* Zone image principale — aspect-ratio impose les proportions sans déformer */
 .pci{width:100%;aspect-ratio:4/3;overflow:hidden;position:relative;background:#fff}
-/* object-fit:contain — image entière visible, pas de recadrage, fond blanc */
 .pci img{width:100%;height:100%;object-fit:contain;position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
 .pci img.active{opacity:1}
-/* Bande de vignettes cliquables sous l'image principale */
 .pct{display:flex;gap:4px;padding:4px;background:#fff}
-/* Vignette — .active = contour rouge + opacité pleine */
 .pct-item{flex:1;height:60px;overflow:hidden;cursor:pointer;position:relative;opacity:.55;transition:opacity .2s,outline .15s}
 .pct-item.active{opacity:1;outline:2px solid var(--r);outline-offset:-2px}
 .pct-item:hover{opacity:.85}
-/* object-fit:contain sur les vignettes aussi — fond blanc, pas de déformation */
 .pct-item img{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
-/* Méta du projet : numéro, titre, description */
 .pcm{padding:18px 20px;border-top:3px solid var(--r);background:#fff}
 .pcnum{font-family:var(--FC);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--r);margin-bottom:6px}
 .pcname{font-family:var(--FC);font-size:18px;font-weight:700;text-transform:uppercase;color:var(--blk);line-height:1.2;margin-bottom:6px}
 .pcd{font-size:12px;font-weight:300;color:var(--muted);line-height:1.6}
+/* Lien "voir tous les projets" en bas de section */
+.proj-more{margin-top:32px;text-align:center}
+.proj-more a{font-family:var(--FC);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--r);text-decoration:none;border-bottom:2px solid var(--r);padding-bottom:3px;transition:color .2s,border-color .2s}
+.proj-more a:hover{color:var(--blk);border-color:var(--blk)}
 /* ── AVIS CLIENTS ── */
 /* Section fond bleu foncé — grille 2×2 de témoignages */
 .aviss{background:var(--dk);padding:72px 5vw}
@@ -557,6 +554,11 @@ body{font-family:var(--F);background:var(--wht);color:var(--blk);width:100%;over
     </article>
 
   </div>
+
+  <div class="proj-more">
+  <a href="https://archi-panorama.fr/fiche-artisan.php?id_artisan=114" target="_blank" rel="noopener">Voir tous nos projets réalisés →</a>
+</div>
+
 </section>
 
 <!-- ============================================================
